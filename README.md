@@ -1,7 +1,7 @@
 #Random Race Generator v1.2
 
 ###Description
-This script allows the player to randomly create races across the San Andreas map.
+This SA-MP script allows the player to randomly create races across the San Andreas map.
  
 While doing this, it provides a neat GUI for viewing the current available races.
  
