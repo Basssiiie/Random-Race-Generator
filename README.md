@@ -8,6 +8,8 @@
 - [Customized RRG (Includes)](https://github.com/Basssiiie/Random-Race-Generator#customized-rrg-includes)
 - [Changelog](https://github.com/Basssiiie/Random-Race-Generator#customized-rrg-includes)
 
+ -----------------------------------------
+ 
 ##Introduction
 
 ###Description
