@@ -1,118 +1,115 @@
+#Random Race Generator v1.2
 
-     // - - - - - - - - - - - -	- - - //
-    //   Random Race Generator v1.2  //
-   // - - - - - - - - - - - - - - - // 
+###Description
+This script allows the player to randomly create races across the San Andreas map.
+ 
+While doing this, it provides a neat GUI for viewing the current available races.
+ 
+###Commands
 
-	Description:
-	 This script allows the player to randomly 
-	 create races across the San Andreas map.
-	 
-	 While doing this, it provides a neat GUI for 
-	 viewing the current available races.
-	 
-	Commands:
-	 /rrg (main command)
-	 /rrg help
-		 - shows all possible commands in the chat.
-	 /rrg menu
-		 - shows the race list (join & create).
-	 /rrg respawn
-		 - respawns the at the last checkpoint.
-	 /rrg leave
-		 - leave the current race or call it off.
-	 /rrg start
-		 - starts the current race, if player is
-			the host.
-	 /rrg invite [name]
-		 - invite another player to your race, if
-			the inviting player is host.
-	 /rrg showinvite
-		 - shows the last received invite.
-		
-	Contest:
-	 This script was made for the RouteConnector
-	 contest, hosted by Gamer_Z.
-	 
-	 Contest URL:
-	 http://forum.sa-mp.com/showthread.php?t=411412
+_/rrg (main command)_
+
+_/rrg help_
+
+shows all possible commands in the chat.
+
+_/rrg menu_
+
+shows the race list (join & create).
+
+_/rrg respawn_
+
+respawns the at the last checkpoint.
+
+_/rrg leave_
+
+leave the current race or call it off.
+
+_/rrg start_
+
+starts the current race, if player is the host.
+
+_/rrg invite [name]_
+
+invite another player to your race, if the inviting player is host.
+
+_/rrg showinvite_
+
+shows the last received invite.
 	
-	Thanks a lot:
-	 - Gamer_Z;
-	 - Mauzen;
-	 - All the people who contributed to the forums
-	   with their snippets and examples!
+###Contest
+This script was made for the RouteConnector contest, hosted by Gamer_Z.
+ 
+Contest URL: http://forum.sa-mp.com/showthread.php?t=411412
+
+###Thanks a lot
+ - Gamer_Z;
+ - Mauzen;
+ - All the people who contributed to the forums with their snippets and examples!
+
+###End note
+
+Feel free to edit this script as you like. You are also allowed to borrow any code from it, as long as you keep some credits to me. Please do not claim this as your own.
+
+If you have any problems with or questions about this script, please contact me via the official SA-MP forums or on Github.
+
+Topic URL: http://forum.sa-mp.com/showthread.php?t=437708
+
+Regards,
+Basssiiie
+
+ -----------------------------------------
+
+##How to use
+
+###Step 1
+Make sure you have the RouteConnector plugin installed. 
+ - Download: http://forum.sa-mp.com/showthread.php?t=292031
+ - Put the plugin in the 'plugins' folder.
+ - Put the *.dat files in the 'scriptfiles' folder.
+ - Add 'RouteConnectorPlugin' (or 'RouteConnectorPlugin.so' on Linux server) after 'plugins' in server.cfg.
+
+###Step 2
+If you want to use the Random Race Generator as a gamemode:
+ - Put RandomRaceGenerator.amx in either the 'gamemodes' folder.
+ - Set gamemode0 (or any other number) to 'gamemode0 RandomRaceGenerator 1' in server.cfg.
 	
-	End note:
-	 Feel free to edit this script as you like. You
-	 are also allowed to borrow any code from it,
-	 as long as you keep some credits to me.
-	 Please do not claim this as your own.
+If you want to use the Random Race Generator as a filterscript:
+ - Put RandomRaceGenerator.amx in either the 'filterscripts' folder.
+ - Add 'RandomRaceGenerator' after 'filterscripts' in server.cfg.
 	
-	 If you have any problems with or questions
-	 about this script, please contact me via the 
-	 official SA-MP forums.
-	 
-	 Topic URL:
-	 http://forum.sa-mp.com/showthread.php?t=437708
+If you want to use the Random Race Generator as an include:
+ - Scroll down to read the 'CUSTOMIZED RRG' part.
 	
-	Regards,
-	 Basssiiie
+###Step 3
+Launch the server and check in the console if both the plugin and Random Race Generator are launched properly.
 
 
 
- ------------------------------------------
- --- > --- > --- HOW TO USE --- < --- < ---
- ------------------------------------------
-
-1. Make sure you have the RouteConnector plugin installed. 
-	- Download: http://forum.sa-mp.com/showthread.php?t=292031
-	- Put the plugin in the 'plugins' folder.
-	- Put the *.dat files in the 'scriptfiles' folder.
-	- Add 'RouteConnectorPlugin' (or 'RouteConnectorPlugin.so' on Linux server) after 'plugins' in server.cfg.
-
-2. If you want to use the Random Race Generator as a gamemode:
-	- Put RandomRaceGenerator.amx in either the 'gamemodes' folder.
-	- Set gamemode0 (or any other number) to 'gamemode0 RandomRaceGenerator 1' in server.cfg.
-	
-   If you want to use the Random Race Generator as a filterscript:
-    - Put RandomRaceGenerator.amx in either the 'filterscripts' folder.
-	- Add 'RandomRaceGenerator' after 'filterscripts' in server.cfg.
-	
-   If you want to use the Random Race Generator as an include:
-	- Scroll down to the 'CUSTOMIZED RRG' part.
-	
-3. Launch the server and check in the console if both the plugin and Random Race Generator are launched properly.
-
-
-
- ---------------------------------------------------------
- --- > --- > --- CUSTOMIZED RRG (INCLUDES) --- < --- < ---
- ---------------------------------------------------------
+##Customized RRG (Includes)
 
 Version 1.2 allows scripters to create their own versions of the Random Race Generator, for example by adding new features or creating a new GUI.
 
 If you want to create a custom version, you have to include the original script into your new filterscript. 
-	- To do this, you can to place 'RandomRaceGenerator.pwn' in the 'pawno/include' folder.
-		Alternatively, you can keep it in the 'gamemodes' folder if you want to include it in your gamemode, or in the 'filterscripts' folder to include it in your filterscript.
+ - To do this, you can to place 'RandomRaceGenerator.pwn' in the 'pawno/include' folder.
+
+Alternatively, you can keep it in the 'gamemodes' folder if you want to include it in your gamemode, or in the 'filterscripts' folder to include it in your filterscript.
 		
-	- NOTE: If you want to load your custom version into your server, you don't have to load the original script too! 
-			It's included in your new script, so you can remove the original one from your server.cfg file.
+ - **NOTE:** If you want to load your custom version into your server, you don't have to load the original script too! It's included in your new script, so you can remove the original one from your server.cfg file.
 
 There are two example scripts in the download of RRG, which will showcase how everything is set up.
-	- RRG_prizemoney
-		A custom script which gifts the first, second and third place in a race some prize money.
-		It shows how you can hook the script using RRG callbacks without much hassle.
-	- RRG_bonuspickups
-		This custom script is a bit larger. It spawns one of three pickups every few checkpoints. 
-		One pickup will give the car nitro, another one repairs the car. The last one will explode when picked up.
-		It's a combination of several callbacks, functions and using additional arrays for saving race data.
+ - RRG_prizemoney
+A custom script which gifts the first, second and third place in a race some prize money. It shows how you can hook the script using RRG callbacks without much hassle.
+ - RRG_bonuspickups
+This custom script is a bit larger. It spawns one of three pickups every few checkpoints. One pickup will give the car nitro, another one repairs the car. The last one will explode when picked up. It's a combination of several callbacks, functions and using additional arrays for saving race data.
 
 If you want to release your customized version to the public, you can do that. However, you cannot reupload the original script with it!
 	- In your release topic, provide a download link to the original forum topic. (This one: http://forum.sa-mp.com/showthread.php?t=437708 )
 
 
-	[CALLBACKS]
+###Callbacks
 
+```
 forward onRandomRaceCreated(raceid, hostplayer, Float: totaldistance, totalcps); 
 	Description:
 		Is called when a race is succesfully generated after using 'generateRandomRace'.
@@ -169,17 +166,17 @@ forward onRaceRemove(raceid);
 		Is called when the race is removed.
 	Params:
 		- raceid		= The ID of the race.
+```
 
-
-	[DEFINES]
-
+###Macro's
+```
 #define RRG_DisableCommands
 	Description:
-		If defined, will disable commands like /rrg. Useful if you want to 
+		If defined before the include, it will disable commands like /rrg. Useful if you want to make your own commands or only access the race generator from a specific location.
+```
 
-
-	[MAIN FUNCTIONS]
-
+###Main Functions
+```
 native generateRandomRace(hostplayer, Float: startX, Float: startY, Float: startZ, Float: distance, vehiclemodel, bool: private, slot = -1, Float: nodedistance = 1000.0, bool: nodeareas = false);
 	Description:
 		Generates a new random race and calls 'onRandomRaceGenerated(raceid, hostplayer, Float: totaldistance, totalcps)' when done with creating.
@@ -430,14 +427,13 @@ native getRaceVehicleModel(raceid);
 		- raceid		= The ID of the race.
 	Returns:
 		The model ID of the vehicle in the race, or 0 if the race doesn't exist.
+```
 
 
 
- -----------------------------------------
- --- > --- > --- CHANGELOG --- < --- < ---
- -----------------------------------------
+##Changelog
 
-	[v 1.2]		1st of June 2014
+###Version 1.2, 1st of June 2014
  - Added: You can now invite players to the race you are currently in (both public and private races).
  - Added: The ability to create private races. Other people can only join these races via invites from one of the contestants.
  - Added: During the race, a textdraw will show the contestant how many checkpoints are left and which position he has in the race.
@@ -467,7 +463,7 @@ native getRaceVehicleModel(raceid);
  - Fixed: "Run time error 20" if script was used as gamemode.
  - Fixed: Ghost vehicles (vehicles which drive without visible driver) should not happen anymore.
 
-	[v 1.1]		13th of August 2013
+###Version 1.1, 13th of August 2013
  - Added: You can use different vehicle models for a race now in a pre-set list. This list is changeable in the settings.
  - Added: There's also an option called "Enter a specific model ID" in the list, but this has to be enabled via the settings.
  - Added: The join menu now has a sidebar on the left, which contains information about the selected race. (vehicle, length, host, contestants etc..)
@@ -484,6 +480,6 @@ native getRaceVehicleModel(raceid);
  - Fixed: Races which were created in the first slot will start properly now.
  - Fixed: You can now only check checkpoints if you are in your race vehicle.
 
-	[v 1.0]		17th of May 2013
+###Version 1.0, 17th of May 2013
  - First release
  
