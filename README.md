@@ -7,35 +7,16 @@ While doing this, it provides a neat GUI for viewing the current available races
  
 ###Commands
 
-_/rrg (main command)_
-
-_/rrg help_
-
-shows all possible commands in the chat.
-
-_/rrg menu_
-
-shows the race list (join & create).
-
-_/rrg respawn_
-
-respawns the at the last checkpoint.
-
-_/rrg leave_
-
-leave the current race or call it off.
-
-_/rrg start_
-
-starts the current race, if player is the host.
-
-_/rrg invite [name]_
-
-invite another player to your race, if the inviting player is host.
-
-_/rrg showinvite_
-
-shows the last received invite.
+| Command | Effect |
+| --- | --- |
+| `/rrg (main command)` | Shows all possible commands in the chat. |
+| `/rrg help` | Same as `/rrg`. |
+| `/rrg menu` | Shows the race list (join & create). |
+| `/rrg respawn` | Respawns the at the last checkpoint. |
+| `/rrg leave` | Leave the current race or call it off. |
+| `/rrg start` | Starts the current race, if player is the host. |
+| `/rrg invite [name]` | Invite another player to your race, if the inviting player is host. |
+| `/rrg showinvite` | Shows the last received invite. |
 	
 ###Contest
 This script was made for the RouteConnector contest, hosted by Gamer_Z.
@@ -84,7 +65,7 @@ If you want to use the Random Race Generator as an include:
 ###Step 3
 Launch the server and check in the console if both the plugin and Random Race Generator are launched properly.
 
-
+ -----------------------------------------
 
 ##Customized RRG (Includes)
 
@@ -106,10 +87,9 @@ This custom script is a bit larger. It spawns one of three pickups every few che
 If you want to release your customized version to the public, you can do that. However, you cannot reupload the original script with it!
 	- In your release topic, provide a download link to the original forum topic. (This one: http://forum.sa-mp.com/showthread.php?t=437708 )
 
-
 ###Callbacks
 
-```
+```pawn
 forward onRandomRaceCreated(raceid, hostplayer, Float: totaldistance, totalcps); 
 	Description:
 		Is called when a race is succesfully generated after using 'generateRandomRace'.
@@ -169,14 +149,14 @@ forward onRaceRemove(raceid);
 ```
 
 ###Macro's
-```
+```pawn
 #define RRG_DisableCommands
 	Description:
 		If defined before the include, it will disable commands like /rrg. Useful if you want to make your own commands or only access the race generator from a specific location.
 ```
 
 ###Main Functions
-```
+```pawn
 native generateRandomRace(hostplayer, Float: startX, Float: startY, Float: startZ, Float: distance, vehiclemodel, bool: private, slot = -1, Float: nodedistance = 1000.0, bool: nodeareas = false);
 	Description:
 		Generates a new random race and calls 'onRandomRaceGenerated(raceid, hostplayer, Float: totaldistance, totalcps)' when done with creating.
@@ -429,7 +409,7 @@ native getRaceVehicleModel(raceid);
 		The model ID of the vehicle in the race, or 0 if the race doesn't exist.
 ```
 
-
+ -----------------------------------------
 
 ##Changelog
 
