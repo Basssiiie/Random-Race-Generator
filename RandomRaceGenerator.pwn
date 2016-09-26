@@ -304,7 +304,6 @@ new RaceVehicleList[] = {
 // --- > --- > --- THE SOURCE CODE --- < --- < ---
 // -----------------------------------------------
 
-
 #if defined _samp_included
 	#define RRG_is_include 
 #else
@@ -317,6 +316,8 @@ new RaceVehicleList[] = {
 	#endif
 	#define RRG_included
 #endif
+
+#define RRG_VERSION "v1.2.1"
 
 #include <RouteConnector>
 
@@ -529,9 +530,9 @@ onScriptInit()
 	// Loading finished
 	print("\n");
 	#if defined RRG_is_include
-		print("Random Race Generator v1.2 loaded succesfully. (include version)\n");
+		print("Random Race Generator "RRG_VERSION" loaded succesfully. (include version)\n");
 	#else
-		print("Random Race Generator v1.2 loaded succesfully.\n");
+		print("Random Race Generator "RRG_VERSION" loaded succesfully.\n");
 	#endif
 	return 1;
 }
