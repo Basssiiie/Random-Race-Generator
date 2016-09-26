@@ -1,7 +1,7 @@
 /*
-     // - - - - - - - - - - - -	- - - //
-    //   Random Race Generator v1.2  //
-   // - - - - - - - - - - - - - - - // 
+     // - - - - - - - - - - - -	- - - - //
+    //   Random Race Generator v1.2.1  //
+   // - - - - - - - - - - - - - - - - // 
 
 	Description:
 	 This script allows the player to randomly 
@@ -50,7 +50,10 @@
 	
 	 If you have any problems with or questions
 	 about this script, please contact me via the 
-	 official SA-MP forums.
+	 official SA-MP forums or on GitHub.
+	 
+	 An extensive readme can be found on the
+	 GitHub page of this script.
 	 
 	 Topic URL:
 	 http://forum.sa-mp.com/showthread.php?t=437708
