@@ -233,7 +233,7 @@ native removeRace(raceid);
 		0 if race doesn't exist, 1 otherwise.
 ```
 ###Player Functions
-```	
+```pawn
 native putPlayerInRace(playerid, raceid);
 	Description:
 		Adds a new player into the race.
@@ -326,7 +326,7 @@ native showJoinMenuForPlayer(playerid);
 		0 if player is not online, or 1 otherwise.
 ``` 
 ###Race Functions
-``` 
+```pawn
 native isRaceValid(raceid);
 	Description:
 		Checks if the given race exists.
