@@ -1,11 +1,21 @@
 #Random Race Generator v1.2
 
+##Content
+
+- [Introduction](https://github.com/Basssiiie/Random-Race-Generator#introduction)
+- [How to add to server](https://github.com/Basssiiie/Random-Race-Generator#how-to-add-to-server)
+- [Troubleshooting](https://github.com/Basssiiie/Random-Race-Generator#troubleshooting)
+- [Customized RRG (Includes)](https://github.com/Basssiiie/Random-Race-Generator#customized-rrg-includes)
+- [Changelog](https://github.com/Basssiiie/Random-Race-Generator#customized-rrg-includes)
+
+##Introduction
+
 ###Description
 This SA-MP script allows the player to randomly create races across the San Andreas map.
  
 While doing this, it provides a neat GUI for viewing the current available races.
  
-###Commands
+###Server Commands
 
 | Command | Effect |
 | --- | --- |
