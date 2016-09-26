@@ -1,5 +1,7 @@
 #Random Race Generator v1.2.1
 
+###[CLICK HERE TO DOWNLOAD THE LATEST RELEASE.](https://github.com/Basssiiie/Random-Race-Generator/releases)
+
 ##Content
 
  - [Introduction](#introduction)
