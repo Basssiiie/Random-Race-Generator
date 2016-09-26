@@ -102,6 +102,18 @@ There are probably some extra words between those lines, but it is at utmost imp
   
 **Step 5:** If you're still experiencing problems, feel free to leave a message in this topic. I'll try to respond as quick as possible.
 
+####_The server log reports `Failed (libtbb.so.2: cannot open shared object file: No such file or directory)`?_
+
+The RouteConnector plugin makes use of IntelTBB. Make sure you have it installed on your Linux server. You can download it [here](https://www.threadingbuildingblocks.org/download). Download the linux binaries and install the 'ia32' redistribution.
+
+Otherwise, you may be able to use this:
+```
+sudo apt-get install libtbb-dev
+sudo apt-get install libtbb2
+```
+(Source: [maker of RouteConnector, Gamer_Z](http://forum.sa-mp.com/showthread.php?t=292031))
+
+
  -----------------------------------------
 
 ##Customized RRG (Includes)
