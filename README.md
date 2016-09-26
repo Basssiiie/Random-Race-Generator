@@ -1,4 +1,4 @@
-#Random Race Generator v1.2
+#Random Race Generator v1.2.1
 
 ##Content
 
@@ -471,6 +471,10 @@ native getRaceVehicleModel(raceid);
  -----------------------------------------
 
 ##Changelog
+
+###Version 1.2.1, 26th of September 2016
+ - Created: GitHub repository for source code storage.
+ - Removed: Some leftover debug code that was still there.
 
 ###Version 1.2, 1st of June 2014
  - Added: You can now invite players to the race you are currently in (both public and private races).
