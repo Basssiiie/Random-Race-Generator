@@ -54,6 +54,9 @@
 	 
 	 Topic URL:
 	 http://forum.sa-mp.com/showthread.php?t=437708
+	 
+	 GitHub URL:
+	 https://github.com/Basssiiie/Random-Race-Generator
 	
 	Regards,
 	 Basssiiie
@@ -294,62 +297,10 @@ new RaceVehicleList[] = {
 
 
 
-// -----------------------------------------
-// --- > --- > --- CHANGELOG --- < --- < ---
-// -----------------------------------------
+// -----------------------------------------------
+// --- > --- > --- THE SOURCE CODE --- < --- < ---
+// -----------------------------------------------
 
-/* 
-	[v 1.2]		1st of June 2014
- - Added: You can now invite players to the race you are currently in (both public and private races).
- - Added: The ability to create private races. Other people can only join these races via invites from one of the contestants.
- - Added: During the race, a textdraw will show the contestant how many checkpoints are left and which position he has in the race.
- - Added: Extra checks and warning messages for outdated include and plugin and missing GPS.dat.
- - Added: It's possible to use this script as an include as well. For more information, check the forum-post.
- - Added: More compatibility with different virtual worlds.
- - Added: The game will now message you via the chat if a race is canceled.
- - Added: While calculating a race, the game will now tell you what the progress is in percentages.
- - Added: More fancy colors in the chat messages.
- - Added: Support for include scripts, see 'RRG_readme.txt' or forums for more information.
- - Added: Two include example scripts; 'RRG_prizemoney' and 'RRG_bonuspickups'.
- - Added: Chocolate flavour with sprinkles.
- - Changed: All the command-names are changed, they are more consistent and user friendly.
- - Changed: Revamped the way race-info is saved internally.
- - Changed: The script settings are better ordered now. (Made a new category called "Limiting settings", with all the limits.)
- - Changed: The range in which the closest road has to be has been increased by 50%.
- - Changed: Races now require at least two contestants to start. (This can be adjusted in the script settings though.)
- - Changed: The 60 seconds ending timer will switch to a 15 second timer if all contestants have finished the race.
- - Changed: Opening the race menu will now empty death message box only for the player itself. (Not server-wide, new 0.3z R2-2 function.)
- - Improved: Heavily improved route creation progress; 'sudden turnarounds' should be less frequent now.
- - Fixed: Starting the race twice doesn't cause the race to reset anymore.
- - Fixed: If your respawn before the race started for whatever reason (death, vehicle destroyed), now you'll respawn in your spot and not in the middle of the road.
- - Fixed: Respawning after you died won't spawn you somewhere else anymore on some servers.
- - Fixed: On some servers, you could abuse certain (non-RRG) commands to unfreeze yourself before the race started, this should be fixed now.
- - Fixed: The vehicle engine will be automatically turned on when the race starts. (To fix some servers which use manual toggling.)
- - Fixed: The total route distance is a bit more accurate now.
- - Fixed: "Run time error 20" if script was used as gamemode.
- - Fixed: Ghost vehicles (vehicles which drive without visible driver) should not happen anymore.
-
-	[v 1.1]		13th of August 2013
- - Added: You can use different vehicle models for a race now in a pre-set list. This list is changeable in the settings.
- - Added: There's also an option called "Enter a specific model ID" in the list, but this has to be enabled via the settings.
- - Added: The join menu now has a sidebar on the left, which contains information about the selected race. (vehicle, length, host, contestants etc..)
- - Added: Several new settings in the *.PWN file, like: configurable respawn time, race vehicle list and some internal offsets and limits.
- - Added: When leaving your vehicle, you'll be prompted to return to it. If not, the player will be removed from the race.
- - Added: When waiting for a race to start, the player-list is shown to notify you who's in the race.
- - Changed: The "How to respawn"-message so it will show up when the countdown hits '3' instead of 'GO'.
- - Changed: Default minimum race distance is now 150 instead of 500.
- - Improved: Slightly better route and distance calculation.
- - Improved: Extra UI information during race creation for slower servers. (In case creating a race takes longer than a few seconds.)
- - Fixed: /leaverace doesn't try to remove you from a race anymore, if you aren't in one.
- - Fixed: Your vehicle is locked now so people can't highjack your race vehicle anymore.
- - Fixed: You won't be respawned twice when dying in your exploding vehicle.
- - Fixed: Races which were created in the first slot will start properly now.
- - Fixed: You can now only check checkpoints if you are in your race vehicle.
-
-	[v 1.0]		17th of May 2013
- - First release
- 
- */
 
 #if defined _samp_included
 	#define RRG_is_include 
@@ -2530,8 +2481,6 @@ public countdownTimer(race, count)
 
 public OnPlayerEnterRaceCheckpoint(playerid)
 {
-	new teststr[255];
-
 	new race = GetPVarInt(playerid, PVAR_TAG"currentRaceID");
 	// When the player enters a race checkpoint in his race vehicle without being finished
 	if (race && IsPlayerInVehicle(playerid, GetPVarInt(playerid, PVAR_TAG"currentVehID")) /* && !GetPVarInt(playerid, PVAR_TAG"isFinished")*/)
@@ -2557,9 +2506,6 @@ public OnPlayerEnterRaceCheckpoint(playerid)
 			// Get race position based on amount of CPs.
 			new max_cps = MAX_CHECKPOINTS + 2, cur_top_cps = -1, cur_top_id = -1, ranking[MAX_CONTESTANTS];
 			
-			format(teststr, sizeof(teststr), "start calculating; player amount %i", raceInfo[race][rPlayerAmount]);
-			logstuff(teststr);
-			
 			for (new r = raceInfo[race][rFinishedPlayers]; r < MAX_CONTESTANTS; r++)
 			{
 				// Find the best player for the current rank (r = rank ID, p = contestant ID):
@@ -2570,17 +2516,11 @@ public OnPlayerEnterRaceCheckpoint(playerid)
 					new pcp = (racePeopleInRace[race][p][0] == playerid) ? cp : GetPVarInt(racePeopleInRace[race][p][0], PVAR_TAG"currentCPID");
 					if (max_cps >= pcp > cur_top_cps) // Check if player's CP amount is between current ranks highest and last ranks highest.
 					{
-						format(teststr, sizeof(teststr), "player %i is top ranked as %i with %i cps (max_cps %i and cur_top %i)", racePeopleInRace[race][p][0], r + 1, pcp, max_cps, cur_top_cps);
-						logstuff(teststr);
-						
 						cur_top_id = p;
 						cur_top_cps = pcp;
 					}
 					else if (pcp == cur_top_cps && cur_top_id != -1) // If 2 players have the same CP-amount
 					{
-						format(teststr, sizeof(teststr), "player %i and player %i have same target cp %i for rank %i", racePeopleInRace[race][p][0], racePeopleInRace[race][cur_top_id][0], pcp, r + 1);
-						logstuff(teststr);
-						
 						// Get CP distance current checking player
 						new Float: pos[2][3], Float: p_dist, Float: cur_top_dist;
 						GetPlayerPos(racePeopleInRace[race][p][0], pos[0][0], pos[0][1], pos[0][2]);
@@ -2596,9 +2536,6 @@ public OnPlayerEnterRaceCheckpoint(playerid)
 						pos[1][2] -= raceCheckpointList[race][pcp][1];
 						cur_top_dist = floatsqroot((pos[1][0] * pos[1][0]) + (pos[1][1] * pos[1][1]) + (pos[1][2] * pos[1][2]));
 						
-						format(teststr, sizeof(teststr), "compare distances for player %i (%.2f) and %i (%.2f)", racePeopleInRace[race][p][0], p_dist, racePeopleInRace[race][cur_top_id][0], cur_top_dist);
-						logstuff(teststr);
-						
 						// Compare the distance, if this player is closer -> make him top
 						if (cur_top_dist > p_dist)
 						{
@@ -2611,9 +2548,6 @@ public OnPlayerEnterRaceCheckpoint(playerid)
 				// Set the current checking rank to the chosen player:
 				if (cur_top_id != -1)
 				{
-					format(teststr, sizeof(teststr), "ranked at %i: %i ", r + 1, racePeopleInRace[race][cur_top_id][0]);
-					logstuff(teststr);
-					
 					max_cps = cur_top_cps;
 					ranking[cur_top_id] = r + 1;
 					cur_top_id = -1;
@@ -2621,8 +2555,6 @@ public OnPlayerEnterRaceCheckpoint(playerid)
 				}
 				else
 				{
-					format(teststr, sizeof(teststr), "end of calculating, lowest rank = %i", r + 1);
-					logstuff(teststr, true);
 					break;
 				}
 			}
@@ -2661,31 +2593,6 @@ public OnPlayerEnterRaceCheckpoint(playerid)
 	#else
 		return 1;
 	#endif
-}
-
-logstuff (text[], bool: extraend = false)
-{
-	new File: log = fopen("rrg_debug.log", io_append);
-	if (log)
-	{
-		new dag, maand, jaar, uur, minuut, seconde, message[256];
-		getdate(jaar, maand, dag);
-		gettime(uur, minuut, seconde);
-		format(message, sizeof(message), "%02i-%02i-%4i, %02i:%02i:%02i\t | %s\r\n", dag, maand, jaar, uur, minuut, seconde, text);
-		
-		if (extraend == true)
-		{
-			strcat(message, "\r\n");
-		}
-	
-		fwrite(log, message);
-		fclose(log);
-	}
-	else
-	{
-		printf("<RRG_debug> %s", text);	
-	}
-	return 1;
 }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------

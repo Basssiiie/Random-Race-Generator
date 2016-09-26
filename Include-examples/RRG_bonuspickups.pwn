@@ -31,6 +31,9 @@
 	 
 	 Topic URL:
 	 http://forum.sa-mp.com/showthread.php?t=437708
+	 
+	 GitHub URL:
+	 https://github.com/Basssiiie/Random-Race-Generator
 	
 	Regards,
 	 Basssiiie
