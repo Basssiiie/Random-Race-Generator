@@ -122,7 +122,7 @@ There are two example scripts in the download of RRG, which will showcase how ev
 
 If you want to release your customized version to the public, you can do that. However, you cannot reupload the original script with it!
 
-	- In your release topic, provide a download link to the original forum topic. (This one: http://forum.sa-mp.com/showthread.php?t=437708 )
+- In your release topic, provide a download link to the original forum topic. (This one: http://forum.sa-mp.com/showthread.php?t=437708 )
 
 ###Callbacks
 
