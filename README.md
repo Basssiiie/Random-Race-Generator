@@ -41,7 +41,7 @@ Basssiiie
 
  -----------------------------------------
 
-##How to use
+##How to add to server
 
 ###Step 1
 Make sure you have the RouteConnector plugin installed. 
@@ -109,6 +109,7 @@ There are probably some extra words between those lines, but it is at utmost imp
 Version 1.2 allows scripters to create their own versions of the Random Race Generator, for example by adding new features or creating a new GUI.
 
 If you want to create a custom version, you have to include the original script into your new filterscript. 
+
  - To do this, you can to place 'RandomRaceGenerator.pwn' in the 'pawno/include' folder.
 
 Alternatively, you can keep it in the 'gamemodes' folder if you want to include it in your gamemode, or in the 'filterscripts' folder to include it in your filterscript.
@@ -116,12 +117,11 @@ Alternatively, you can keep it in the 'gamemodes' folder if you want to include 
  - **NOTE:** If you want to load your custom version into your server, you don't have to load the original script too! It's included in your new script, so you can remove the original one from your server.cfg file.
 
 There are two example scripts in the download of RRG, which will showcase how everything is set up.
- - RRG_prizemoney
-A custom script which gifts the first, second and third place in a race some prize money. It shows how you can hook the script using RRG callbacks without much hassle.
- - RRG_bonuspickups
-This custom script is a bit larger. It spawns one of three pickups every few checkpoints. One pickup will give the car nitro, another one repairs the car. The last one will explode when picked up. It's a combination of several callbacks, functions and using additional arrays for saving race data.
+ - **RRG_prizemoney:** A custom script which gifts the first, second and third place in a race some prize money. It shows how you can hook the script using RRG callbacks without much hassle.
+ - **RRG_bonuspickups:** This custom script is a bit larger. It spawns one of three pickups every few checkpoints. One pickup will give the car nitro, another one repairs the car. The last one will explode when picked up. It's a combination of several callbacks, functions and using additional arrays for saving race data.
 
 If you want to release your customized version to the public, you can do that. However, you cannot reupload the original script with it!
+
 	- In your release topic, provide a download link to the original forum topic. (This one: http://forum.sa-mp.com/showthread.php?t=437708 )
 
 ###Callbacks
