@@ -16,6 +16,8 @@
 This SA-MP script allows the player to randomly create races across the San Andreas map.
  
 While doing this, it provides a neat GUI for viewing the current available races.
+
+See the [SA-MP Forum post](http://forum.sa-mp.com/showthread.php?t=437708) for more information and screenshots.
  
 ###Server Commands
 
