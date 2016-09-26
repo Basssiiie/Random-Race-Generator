@@ -67,6 +67,43 @@ Launch the server and check in the console if both the plugin and Random Race Ge
 
  -----------------------------------------
 
+##Troubleshooting
+
+####_When I try to create a race, the script says "move closer to the road!" even though I'm standing on the road?_
+
+Make sure you have a node-file loaded. When you load the RouteConnector plugin, it will tell you in the console how many nodes were loaded. By default, it will load GPS.dat in the "scriptfiles" folder. This file is included in the [download](http://forum.sa-mp.com/showthread.php?t=292031) of the plugin. If this file is not present and there's no other node-file loaded, this problem might occur.
+
+Fix it by redownloading the plugin and putting GPS.dat in the "scriptfiles" folder. Restart the server and the problem should be fixed.
+
+####_The script loads fine in the console/log, but when I type one of the commands, it responds `SERVER: Unknown command`?_
+
+####_The server log reports `[debug]Run time error 19: "File or function is not found"` followed by names of functions?_
+
+Follow this checklist:
+
+**Step 1:** Go to your server folder where "samp-server.exe" or "samp03svr" is located.
+
+**Step 2:** Go to the folder "plugins": is there a file called "RouteConnectorPlugin.dll" (if Windows server) or "RouteConnectorPlugin.so" (if Linux server)?
+
+  - If the correct file is not present, download the RouteConnector plugin [here](http://forum.sa-mp.com/showthread.php?t=292031). 
+  
+**Step 3:** Go back to the folder containing "samp-server.exe" or "samp03svr". Now open the file called "server.cfg": find the line which starts with "plugins".
+
+  - If this line is not present, add it at the bottom along with the instruction below.
+  
+  - If this line is present, make sure one of the words after that (on the same line) is "RouteConnectorPlugin" (if Windows server) or "RouteConnectorPlugin.so" (if Linux server).
+  
+**Step 4:** Now re-launch your server and check the console if the plugin loads properly. You can see this because it will print this:
+```
+Loading plugin: RouteConnectorPlugin
+Loaded.
+```
+There are probably some extra words between those lines, but it is at utmost important that it prints the line called "Loaded." before it prints another "Loading plugin:"-line for another plugin (if you have any others).
+  
+**Step 5:** If you're still experiencing problems, feel free to leave a message in this topic. I'll try to respond as quick as possible.
+
+ -----------------------------------------
+
 ##Customized RRG (Includes)
 
 Version 1.2 allows scripters to create their own versions of the Random Race Generator, for example by adding new features or creating a new GUI.
