@@ -231,10 +231,9 @@ native removeRace(raceid);
 		- raceid		= The ID of the race.
 	Returns:
 		0 if race doesn't exist, 1 otherwise.
-
-
-	[PLAYER FUNCTIONS]
-	
+```
+###Player Functions
+```	
 native putPlayerInRace(playerid, raceid);
 	Description:
 		Adds a new player into the race.
@@ -325,10 +324,9 @@ native showJoinMenuForPlayer(playerid);
 		- playerid		= The ID of the player.
 	Returns:
 		0 if player is not online, or 1 otherwise.
-
-
-	[RACE FUNCTIONS]
-
+``` 
+###Race Functions
+``` 
 native isRaceValid(raceid);
 	Description:
 		Checks if the given race exists.
