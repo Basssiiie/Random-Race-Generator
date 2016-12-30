@@ -576,7 +576,7 @@ onScriptExit()
 			}
 		}
 	}
-	for (new p, m = GetMaxPlayers(); p < m; p++)
+	for (new p, m = GetPlayerPoolSize(); p < m; p++)
 	{
 		removeText(p);
 		DeletePVar(p, PVAR_TAG"exitVehTimer");
@@ -645,7 +645,7 @@ public OnPlayerDisconnect(playerid, reason)
 public OnVehicleDeath(vehicleid, killerid)
 {
 	// Check if vehicle was a race vehicle
-	for (new p, mp = GetMaxPlayers(); p < mp; p++)
+	for (new p, mp = GetPlayerPoolSize(); p < mp; p++)
 	{
 		if (IsPlayerConnected(p) && !IsPlayerNPC(p))
 		{
@@ -778,7 +778,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 				
 				// Search for a player with the given name
 				new lastplayer = INVALID_PLAYER_ID, amountfound;
-				for (new p, m = GetMaxPlayers(); p < m; p++)
+				for (new p, m = GetPlayerPoolSize(); p < m; p++)
 				{
 					if (IsPlayerConnected(p) && !IsPlayerNPC(p))
 					{
@@ -1832,7 +1832,7 @@ cleanRace(race, checkhost = false)
 	
 	new playerid = raceInfo[race][rHost];
 	raceInfo[race][rHost] = INVALID_PLAYER_ID;
-	for (new p, mp = GetMaxPlayers(); p < mp; p++)
+	for (new p, mp = GetPlayerPoolSize(); p < mp; p++)
 	{
 		if (IsPlayerConnected(p) && !IsPlayerNPC(p))
 		{
@@ -2202,7 +2202,7 @@ putPlayerInRace(playerid, race)
 	}
 	
 	new currentcontestants;
-	for (new p, mp = GetMaxPlayers(); p < mp; p++)
+	for (new p, mp = GetPlayerPoolSize(); p < mp; p++)
 	{
 		if (IsPlayerConnected(p) && !IsPlayerNPC(p))
 		{
@@ -2637,7 +2637,7 @@ public OnPlayerUpdate(playerid)
 public OnVehicleStreamIn(vehicleid, forplayerid)
 {
 	// Lock race vehicles for other players, no carjacking allowed!
-	for (new p, e = GetMaxPlayers(); p < e; p++)
+	for (new p, e = GetPlayerPoolSize(); p < e; p++)
 	{
 		if (!IsPlayerNPC(p) && IsPlayerConnected(p))
 		{
