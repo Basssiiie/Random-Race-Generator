@@ -76,7 +76,7 @@ If you want to use the Random Race Generator as a filterscript:
  - Add 'RandomRaceGenerator' after 'filterscripts' in server.cfg.
 	
 If you want to use the Random Race Generator as an include:
- - Scroll down to read the 'CUSTOMIZED RRG' part.
+ - See the chapter about [Customized RRG](https://github.com/Basssiiie/Random-Race-Generator#customized-rrg-includes).
 	
 ###Step 3
 Launch the server and check in the console if both the plugin and Random Race Generator are launched properly.
