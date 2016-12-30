@@ -1,4 +1,4 @@
-#Random Race Generator v1.2.1
+#Random Race Generator v1.2.2
 
 ###[CLICK HERE TO DOWNLOAD THE LATEST RELEASE.](https://github.com/Basssiiie/Random-Race-Generator/releases)
 
@@ -476,6 +476,10 @@ native getRaceVehicleModel(raceid);
 
 ##Changelog
 
+###Version 1.2.2, 31st of December 2016
+ - Changed: All player loops now use SA-MP 0.3.7's function [GetPlayerPoolSize()](https://wiki.sa-mp.com/wiki/GetPlayerPoolSize).
+ - Changed: All line endings are now Linux based, because Github doesn't seem to be a fan of Windows line endings... :(
+ 
 ###Version 1.2.1, 26th of September 2016
  - Created: GitHub repository for source code storage.
  - Removed: Some leftover debug code that was still there.
