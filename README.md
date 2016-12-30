@@ -116,7 +116,7 @@ Loaded.
 ```
 There are probably some extra words between those lines, but it is at utmost important that it prints the line called "Loaded." before it prints another "Loading plugin:"-line for another plugin (if you have any others).
   
-**Step 5:** If you're still experiencing problems, feel free to leave a message in this topic. I'll try to respond as quick as possible.
+**Step 5:** If you're still experiencing problems, feel free to leave a message in the topic on the SA-MP forum. I'll try to respond as quick as possible.
 
 ####_The server log reports `Failed (libtbb.so.2: cannot open shared object file: No such file or directory)`?_
 
