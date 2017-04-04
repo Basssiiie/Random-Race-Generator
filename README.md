@@ -1,8 +1,8 @@
-#Random Race Generator v1.2.2
+# Random Race Generator v1.2.2
 
-###[CLICK HERE TO DOWNLOAD THE LATEST RELEASE.](https://github.com/Basssiiie/Random-Race-Generator/releases)
+### [CLICK HERE TO DOWNLOAD THE LATEST RELEASE.](https://github.com/Basssiiie/Random-Race-Generator/releases)
 
-##Content
+## Content
 
  - [Introduction](#introduction)
  - [How to add to server](#how-to-add-to-server)
@@ -12,16 +12,16 @@
 
 -----------------------------------------
  
-##Introduction
+## Introduction
 
-###Description
+### Description
 This SA-MP script allows the player to randomly create races across the San Andreas map.
  
 While doing this, it provides a neat GUI for viewing the current available races.
 
 See the [SA-MP Forum post](http://forum.sa-mp.com/showthread.php?t=437708) for more information and screenshots.
  
-###Server Commands
+### Server Commands
 
 | Command | Effect |
 | --- | --- |
@@ -34,17 +34,17 @@ See the [SA-MP Forum post](http://forum.sa-mp.com/showthread.php?t=437708) for m
 | `/rrg invite [name]` | Invite another player to your race, if the inviting player is host. |
 | `/rrg showinvite` | Shows the last received invite. |
 	
-###Contest
+### Contest
 This script was made for the RouteConnector contest, hosted by Gamer_Z.
  
 Contest URL: http://forum.sa-mp.com/showthread.php?t=411412
 
-###Thanks a lot
+### Thanks a lot
  - Gamer_Z;
  - Mauzen;
  - All the people who contributed to the forums with their snippets and examples!
 
-###End note
+### End note
 
 Feel free to edit this script as you like. You are also allowed to borrow any code from it, as long as you keep some credits to me. Please do not claim this as your own.
 
@@ -57,16 +57,16 @@ Basssiiie
 
  -----------------------------------------
 
-##How to add to server
+## How to add to server
 
-###Step 1
+### Step 1
 Make sure you have the RouteConnector plugin installed. 
  - Download: http://forum.sa-mp.com/showthread.php?t=292031
  - Put the plugin in the 'plugins' folder.
  - Put the *.dat files in the 'scriptfiles' folder.
  - Add 'RouteConnectorPlugin' (or 'RouteConnectorPlugin.so' on Linux server) after 'plugins' in server.cfg.
 
-###Step 2
+### Step 2
 If you want to use the Random Race Generator as a gamemode:
  - Put RandomRaceGenerator.amx in either the 'gamemodes' folder.
  - Set gamemode0 (or any other number) to 'gamemode0 RandomRaceGenerator 1' in server.cfg.
@@ -78,22 +78,22 @@ If you want to use the Random Race Generator as a filterscript:
 If you want to use the Random Race Generator as an include:
  - See the chapter about [Customized RRG](https://github.com/Basssiiie/Random-Race-Generator#customized-rrg-includes).
 	
-###Step 3
+### Step 3
 Launch the server and check in the console if both the plugin and Random Race Generator are launched properly.
 
  -----------------------------------------
 
-##Troubleshooting
+## Troubleshooting
 
-####_When I try to create a race, the script says "move closer to the road!" even though I'm standing on the road?_
+#### _When I try to create a race, the script says "move closer to the road!" even though I'm standing on the road?_
 
 Make sure you have a node-file loaded. When you load the RouteConnector plugin, it will tell you in the console how many nodes were loaded. By default, it will load GPS.dat in the "scriptfiles" folder. This file is included in the [download](http://forum.sa-mp.com/showthread.php?t=292031) of the plugin. If this file is not present and there's no other node-file loaded, this problem might occur.
 
 Fix it by redownloading the plugin and putting GPS.dat in the "scriptfiles" folder. Restart the server and the problem should be fixed.
 
-####_The script loads fine in the console/log, but when I type one of the commands, it responds `SERVER: Unknown command`?_
+#### _The script loads fine in the console/log, but when I type one of the commands, it responds `SERVER: Unknown command`?_
 
-####_The server log reports `[debug]Run time error 19: "File or function is not found"` followed by names of functions?_
+#### _The server log reports `[debug]Run time error 19: "File or function is not found"` followed by names of functions?_
 
 Follow this checklist:
 
@@ -118,7 +118,7 @@ There are probably some extra words between those lines, but it is at utmost imp
   
 **Step 5:** If you're still experiencing problems, feel free to leave a message in the topic on the SA-MP forum. I'll try to respond as quick as possible.
 
-####_The server log reports `Failed (libtbb.so.2: cannot open shared object file: No such file or directory)`?_
+#### _The server log reports `Failed (libtbb.so.2: cannot open shared object file: No such file or directory)`?_
 
 The RouteConnector plugin makes use of IntelTBB. Make sure you have it installed on your Linux server. You can download it [here](https://www.threadingbuildingblocks.org/download). Download the linux binaries and install the 'ia32' redistribution.
 
@@ -132,7 +132,7 @@ sudo apt-get install libtbb2
 
  -----------------------------------------
 
-##Customized RRG (Includes)
+## Customized RRG (Includes)
 
 Version 1.2 allows scripters to create their own versions of the Random Race Generator, for example by adding new features or creating a new GUI.
 
@@ -152,7 +152,7 @@ If you want to release your customized version to the public, you can do that. H
 
 - In your release topic, provide a download link to the original forum topic. (This one: http://forum.sa-mp.com/showthread.php?t=437708 )
 
-###Callbacks
+### Callbacks
 
 ```pawn
 forward onRandomRaceCreated(raceid, hostplayer, Float: totaldistance, totalcps); 
@@ -213,14 +213,14 @@ forward onRaceRemove(raceid);
 		- raceid		= The ID of the race.
 ```
 
-###Macro's
+### Macro's
 ```pawn
 #define RRG_DisableCommands
 	Description:
 		If defined before the include, it will disable commands like /rrg. Useful if you want to make your own commands or only access the race generator from a specific location.
 ```
 
-###Main Functions
+### Main Functions
 ```pawn
 native generateRandomRace(hostplayer, Float: startX, Float: startY, Float: startZ, Float: distance, vehiclemodel, bool: private, slot = -1, Float: nodedistance = 1000.0, bool: nodeareas = false);
 	Description:
@@ -260,7 +260,7 @@ native removeRace(raceid);
 	Returns:
 		0 if race doesn't exist, 1 otherwise.
 ```
-###Player Functions
+### Player Functions
 ```pawn
 native putPlayerInRace(playerid, raceid);
 	Description:
@@ -353,7 +353,7 @@ native showJoinMenuForPlayer(playerid);
 	Returns:
 		0 if player is not online, or 1 otherwise.
 ``` 
-###Race Functions
+### Race Functions
 ```pawn
 native isRaceValid(raceid);
 	Description:
@@ -474,17 +474,17 @@ native getRaceVehicleModel(raceid);
 
  -----------------------------------------
 
-##Changelog
+## Changelog
 
-###Version 1.2.2, 31st of December 2016
+### Version 1.2.2, 31st of December 2016
  - Changed: All player loops now use SA-MP 0.3.7's function [GetPlayerPoolSize()](https://wiki.sa-mp.com/wiki/GetPlayerPoolSize).
  - Changed: All line endings are now Linux based, because Github doesn't seem to be a fan of Windows line endings... :(
  
-###Version 1.2.1, 26th of September 2016
+### Version 1.2.1, 26th of September 2016
  - Created: GitHub repository for source code storage.
  - Removed: Some leftover debug code that was still there.
 
-###Version 1.2, 1st of June 2014
+### Version 1.2, 1st of June 2014
  - Added: You can now invite players to the race you are currently in (both public and private races).
  - Added: The ability to create private races. Other people can only join these races via invites from one of the contestants.
  - Added: During the race, a textdraw will show the contestant how many checkpoints are left and which position he has in the race.
@@ -514,7 +514,7 @@ native getRaceVehicleModel(raceid);
  - Fixed: "Run time error 20" if script was used as gamemode.
  - Fixed: Ghost vehicles (vehicles which drive without visible driver) should not happen anymore.
 
-###Version 1.1, 13th of August 2013
+### Version 1.1, 13th of August 2013
  - Added: You can use different vehicle models for a race now in a pre-set list. This list is changeable in the settings.
  - Added: There's also an option called "Enter a specific model ID" in the list, but this has to be enabled via the settings.
  - Added: The join menu now has a sidebar on the left, which contains information about the selected race. (vehicle, length, host, contestants etc..)
@@ -531,6 +531,6 @@ native getRaceVehicleModel(raceid);
  - Fixed: Races which were created in the first slot will start properly now.
  - Fixed: You can now only check checkpoints if you are in your race vehicle.
 
-###Version 1.0, 17th of May 2013
+### Version 1.0, 17th of May 2013
  - First release
  
