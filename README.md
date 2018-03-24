@@ -46,7 +46,7 @@ Contest URL: http://forum.sa-mp.com/showthread.php?t=411412
 
 ### End note
 
-Feel free to edit this script as you like. You are also allowed to borrow any code from it, as long as you keep some credits to me. Please do not claim this as your own. Feel free to submit pull requests.
+Feel free to edit this script as you like. You are also allowed to borrow any code from it, as long as you keep some credits to me. Please do not claim this as your own. Feel free to submit pull requests. If you added the script to your server, feel free to invite me over sometime!
 
 If you have any problems with or questions about this script, please contact me via the official SA-MP forums or on Github.
 
